@@ -35,9 +35,8 @@ namespace Lab3_
         {
             int num = numerator * other.denominator - other.numerator * denominator;
             int den = denominator * other.denominator;
-            return new Fraction(num, den).Simplify();
+            return new Fraction(num, den).Simplify(); 
         }
-
 
         public Fraction Multiply(Fraction other)
         {
@@ -73,6 +72,21 @@ namespace Lab3_
         private int GCD(int a, int b)
         {
             return b == 0 ? a : GCD(b, a % b);
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Fraction other = (Fraction)obj;
+            return this.numerator == other.numerator && this.denominator == other.denominator;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(numerator, denominator);
         }
 
 
