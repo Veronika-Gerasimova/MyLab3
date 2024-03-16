@@ -47,7 +47,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(109, 74);
+            textBox2.Location = new Point(109, 67);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "+", "-", "*", "%" });
-            comboBox1.Location = new Point(21, 40);
+            comboBox1.Location = new Point(21, 41);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(68, 23);
             comboBox1.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(218, 236);
+            ClientSize = new Size(218, 184);
             Controls.Add(label1);
             Controls.Add(textBox3);
             Controls.Add(label3);

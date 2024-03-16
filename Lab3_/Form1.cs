@@ -101,6 +101,10 @@ namespace Lab3_
                     result.Simplify();
                 }
             }
+            catch (FormatException)
+            {
+                // Обработка некорректного формата
+            }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
