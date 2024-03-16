@@ -58,7 +58,7 @@ namespace Lab3_
         public Fraction Simplify()
         {
             int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
-            int sign = Math.Sign(numerator) * Math.Sign(denominator); // Preserve the sign of the fraction
+            int sign = Math.Sign(numerator) * Math.Sign(denominator);
             return new Fraction(sign * numerator / gcd, denominator / gcd);
         }
 
@@ -74,23 +74,6 @@ namespace Lab3_
         {
             return b == 0 ? a : GCD(b, a % b);
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            Fraction other = (Fraction)obj;
-            return this.numerator == other.numerator && this.denominator == other.denominator;
-        }
-
-        public override int GetHashCode()
-        {
-            return Tuple.Create(numerator, denominator).GetHashCode();
-        }
-
 
 
     }
