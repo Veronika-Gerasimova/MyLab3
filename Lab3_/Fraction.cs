@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab3_
 {
-    public class Fraction
+    
+    public class Fraction 
     {
         public int numerator;
         public int denominator;
 
+        //Создание нового объекта-дроби с числителем и знаменателем
         public Fraction(int num, int den)
         {
             if (den == 0)
@@ -19,11 +21,13 @@ namespace Lab3_
             denominator = den;
         }
 
+        //Метод возвращает строковое представление дроби в формате числитель/знаменатель
         public override string ToString()
         {
             return $"{numerator}/{denominator}";
         }
 
+        //Реализация сложения дробей
         public Fraction Add(Fraction other)
         {
             int num = numerator * other.denominator + other.numerator * denominator;
@@ -31,6 +35,7 @@ namespace Lab3_
             return new Fraction(num, den);
         }
 
+        //Реализация вычитания
         public Fraction Subtract(Fraction other)
         {
             int num = numerator * other.denominator - other.numerator * denominator;
@@ -38,6 +43,7 @@ namespace Lab3_
             return new Fraction(num, den).Simplify(); 
         }
 
+        //Реализация умножения
         public Fraction Multiply(Fraction other)
         {
             int num = numerator * other.numerator;
@@ -45,6 +51,7 @@ namespace Lab3_
             return new Fraction(num, den);
         }
 
+        //Реализация деления
         public Fraction Divide(Fraction other)
         {
             if (other.numerator == 0)
@@ -54,14 +61,15 @@ namespace Lab3_
             return new Fraction(num, den);
         }
 
+        //Сокращение дроби
         public Fraction Simplify()
         {
-            int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
-            int sign = Math.Sign(numerator) * Math.Sign(denominator);
+            int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator)); //вычисление НОД для двух чисел
+            int sign = Math.Sign(numerator) * Math.Sign(denominator); //определение знака результирующей дроби
             return new Fraction(sign * numerator / gcd, denominator / gcd);
         }
 
-
+        //Сравнение дробей
         public int CompareTo(Fraction other)
         {
             int num1 = numerator * other.denominator;
@@ -69,10 +77,13 @@ namespace Lab3_
             return num1.CompareTo(num2);
         }
 
+        //Вычисление наибольшего общего делителя с помощью алгоритма Евклида
         private int GCD(int a, int b)
         {
             return b == 0 ? a : GCD(b, a % b);
         }
+
+        //Переопределяют базовые методы для корректного сравнения и хеширования объектов дробей
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -88,8 +99,6 @@ namespace Lab3_
         {
             return HashCode.Combine(numerator, denominator);
         }
-
-
     }
 }
 
