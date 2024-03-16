@@ -4,7 +4,7 @@ namespace Lab3_
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); //инициализирует все компоненты формы (кнопки, текстовые поля..)
             this.Text = "Калькулятор дробей";
             this.ActiveControl = textBox1;
         }
@@ -45,6 +45,7 @@ namespace Lab3_
                 int numerator2 = int.Parse(parts2[0]);
                 int denominator2 = int.Parse(parts2[1]);
 
+                //Если пользователь ввел неправильную дробь или знаменатель равен 0
                 if (numerator1 > denominator1 || denominator1 == 0 || numerator2 > denominator2 || denominator2 == 0)
                 {
                     throw new ArgumentException("Некорректные значения числителя и знаменателя");
@@ -52,7 +53,7 @@ namespace Lab3_
 
                 if (numerator1 == denominator1 && numerator2 == denominator2)
                 {
-                    throw new ArgumentException("Числитель и знаменатель не могут быть равны");
+                    throw new ArgumentException("Числитель и знаменатель не могут быть равны в данном случае. Введите правильную дробь");
                 }
 
                 var fraction1 = new Fraction(numerator1, denominator1).Simplify(); ;
@@ -99,10 +100,6 @@ namespace Lab3_
                     textBox3.Text = result.ToString();
                     result.Simplify();
                 }
-            }
-            catch (FormatException)
-            {
-                //
             }
             catch (ArgumentException ex)
             {
